@@ -109,7 +109,7 @@ int main()
     vector<int> input_dims = {1, 224, 224, 3};
     vector<int> kernel_dims = {7, 7, 3, 64};
     auto input = read_npy_file("../inputs/py_input_hwc.npy", input_dims);
-    auto kernel = read_npy_file("../weights/py_conv_hwc_wt.npy", kernel_dims);
+    auto kernel = read_npy_file("../weights/py_hwc_wt.npy", kernel_dims);
 
     Vector4D output;
 

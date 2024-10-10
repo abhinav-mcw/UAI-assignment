@@ -35,11 +35,22 @@ if __name__ == "__main__":
     output_channel = kernel_dims[0]
 
     # This flag will be used to indicate whether input is in NHWC format
-    input_format = "NCHW"  # Change to "NHWC" if input is in NHWC format
+    
+    input_format = "NCHW"  
+
+    # input_format = "NHWC"  
+
 
     # Load input and kernel data (example: adjust paths as needed)
-    input_data = np.load("../inputs/py_input_conv.npy")  # Assumed to be in NCHW or NHWC format
-    kernel_data = np.load("../weights/py_conv_wt.npy")  # Kernel data is expected in NCHW format
+
+    input_data = np.load("../inputs/py_input.npy")  # for nchw
+
+    # input_data = np.load("../inputs/py_input_hwc.npy")  # for nhwc
+
+    kernel_data = np.load("../weights/py_wt.npy")   # for nchw
+
+    # kernel_data = np.load("../weights/py_hwc_wt.npy") # for nhwc
+
 
     if input_format == "NHWC":
         # Convert NHWC (1, 224, 224, 3) to NCHW (1, 3, 224, 224) for PyTorch
@@ -51,6 +62,8 @@ if __name__ == "__main__":
         input_tensor = torch.from_numpy(input_data)  # Already in NCHW format
         kernel_tensor = torch.from_numpy(kernel_data)  # Already in NCHW format
 
+    print(input_tensor.shape)
+    print(kernel_tensor.shape)
     # Define the convolutional layer
     conv = nn.Conv2d(
         in_channels=input_channel,  # 3

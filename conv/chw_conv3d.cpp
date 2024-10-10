@@ -102,8 +102,8 @@ int main()
     // int input_dim = 10;
     // int filter_dim = 4;
 
-    auto input = read_npy_file("../inputs/py_input_conv.npy", input_dims);
-    auto kernel = read_npy_file("../weights/py_conv_wt.npy", kernel_dims);
+    auto input = read_npy_file("../inputs/py_input.npy", input_dims);
+    auto kernel = read_npy_file("../weights/py_wt.npy", kernel_dims);
 
     int padding = 3;
     int stride = 2;
